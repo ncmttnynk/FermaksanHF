@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FermaksanModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SonGiris" Type="date" Nullable="false" />
+          <Property Name="Hiper" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="anamenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UstMenuId" Type="int" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BaslikId" Type="int" Nullable="false" />
+          <Property Name="AnaBaslikId" Type="int" Nullable="false" />
+          <Property Name="Ayrinti" Type="mediumtext" />
+          <Property Name="OkunmaSayisi" Type="int" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+          <Property Name="KayitTarihi" Type="date" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iletisim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eposta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aciklama" Type="mediumtext" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="Cevaplandi" Type="bool" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="k2m">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MakineId" Type="int" Nullable="false" />
+          <Property Name="KategoriId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kategoriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="makinefotograflar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MakineId" Type="int" Nullable="false" />
+          <Property Name="Fotograf" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="makineler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Aciklama" Type="mediumtext" Nullable="false" />
+          <Property Name="Detay" Type="mediumtext" />
+          <Property Name="Ozellikler" Type="mediumtext" />
+          <Property Name="Video" Type="varchar" MaxLength="200" />
+          <Property Name="Katalog" Type="varchar" MaxLength="200" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mansetler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fotograf" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Yeni" Type="bool" Nullable="false" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="s2m">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MakineId" Type="int" Nullable="false" />
+          <Property Name="SektorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sabitler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Icerik" Type="mediumtext" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sektorler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Aciklama" Type="mediumtext" />
+          <Property Name="Fotograf" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Oncelik" Type="int" Nullable="false" />
+          <Property Name="Goster" Type="bool" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="servis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eposta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aciklama" Type="mediumtext" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="Cevaplandi" Type="bool" Nullable="false" />
+          <Property Name="DilKod" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="Rastgele" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="fermaksan" ReturnType="int" />
+        <EntityContainer Name="FermaksanModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="anamenu" EntityType="Self.anamenu" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="cms" EntityType="Self.cms" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="iletisim" EntityType="Self.iletisim" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="k2m" EntityType="Self.k2m" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="kategoriler" EntityType="Self.kategoriler" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="makinefotograflar" EntityType="Self.makinefotograflar" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="makineler" EntityType="Self.makineler" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="mansetler" EntityType="Self.mansetler" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="s2m" EntityType="Self.s2m" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="sabitler" EntityType="Self.sabitler" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="sektorler" EntityType="Self.sektorler" Schema="fermaksan" store:Type="Tables" />
+          <EntitySet Name="servis" EntityType="Self.servis" Schema="fermaksan" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FermaksanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FermaksanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="FermaksanModel.admin" />
+          <EntitySet Name="anamenu" EntityType="FermaksanModel.anamenu" />
+          <EntitySet Name="cms" EntityType="FermaksanModel.cms" />
+          <EntitySet Name="iletisim" EntityType="FermaksanModel.iletisim" />
+          <EntitySet Name="k2m" EntityType="FermaksanModel.k2m" />
+          <EntitySet Name="kategoriler" EntityType="FermaksanModel.kategoriler" />
+          <EntitySet Name="makinefotograflar" EntityType="FermaksanModel.makinefotograflar" />
+          <EntitySet Name="makineler" EntityType="FermaksanModel.makineler" />
+          <EntitySet Name="mansetler" EntityType="FermaksanModel.mansetler" />
+          <EntitySet Name="s2m" EntityType="FermaksanModel.s2m" />
+          <EntitySet Name="sabitler" EntityType="FermaksanModel.sabitler" />
+          <EntitySet Name="sektorler" EntityType="FermaksanModel.sektorler" />
+          <EntitySet Name="servis" EntityType="FermaksanModel.servis" />
+        </EntityContainer>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdSoyad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SonGiris" Type="DateTime" Nullable="false" />
+          <Property Name="Hiper" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="anamenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UstMenuId" Type="Int32" Nullable="false" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Kod" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BaslikId" Type="Int32" Nullable="false" />
+          <Property Name="AnaBaslikId" Type="Int32" Nullable="false" />
+          <Property Name="Ayrinti" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="OkunmaSayisi" Type="Int32" Nullable="false" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Nullable="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iletisim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Eposta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" />
+          <Property Name="Cevaplandi" Type="Boolean" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="k2m">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MakineId" Type="Int32" Nullable="false" />
+          <Property Name="KategoriId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kategoriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="makinefotograflar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MakineId" Type="Int32" Nullable="false" />
+          <Property Name="Fotograf" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="makineler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="Detay" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="Ozellikler" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="Video" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Katalog" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mansetler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fotograf" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Yeni" Type="Boolean" Nullable="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="s2m">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MakineId" Type="Int32" Nullable="false" />
+          <Property Name="SektorId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sabitler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icerik" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sektorler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="Fotograf" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Oncelik" Type="Int32" Nullable="false" />
+          <Property Name="Goster" Type="Boolean" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="servis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Eposta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" />
+          <Property Name="Cevaplandi" Type="Boolean" Nullable="false" />
+          <Property Name="DilKod" Type="Int32" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FermaksanModelStoreContainer" CdmEntityContainer="FermaksanEntities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="FermaksanModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="Hiper" ColumnName="Hiper" />
+                <ScalarProperty Name="SonGiris" ColumnName="SonGiris" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="anamenu">
+            <EntityTypeMapping TypeName="FermaksanModel.anamenu">
+              <MappingFragment StoreEntitySet="anamenu">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="UstMenuId" ColumnName="UstMenuId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cms">
+            <EntityTypeMapping TypeName="FermaksanModel.cms">
+              <MappingFragment StoreEntitySet="cms">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="OkunmaSayisi" ColumnName="OkunmaSayisi" />
+                <ScalarProperty Name="Ayrinti" ColumnName="Ayrinti" />
+                <ScalarProperty Name="AnaBaslikId" ColumnName="AnaBaslikId" />
+                <ScalarProperty Name="BaslikId" ColumnName="BaslikId" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iletisim">
+            <EntityTypeMapping TypeName="FermaksanModel.iletisim">
+              <MappingFragment StoreEntitySet="iletisim">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Cevaplandi" ColumnName="Cevaplandi" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="k2m">
+            <EntityTypeMapping TypeName="FermaksanModel.k2m">
+              <MappingFragment StoreEntitySet="k2m">
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="MakineId" ColumnName="MakineId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategoriler">
+            <EntityTypeMapping TypeName="FermaksanModel.kategoriler">
+              <MappingFragment StoreEntitySet="kategoriler">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="makinefotograflar">
+            <EntityTypeMapping TypeName="FermaksanModel.makinefotograflar">
+              <MappingFragment StoreEntitySet="makinefotograflar">
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+                <ScalarProperty Name="MakineId" ColumnName="MakineId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="makineler">
+            <EntityTypeMapping TypeName="FermaksanModel.makineler">
+              <MappingFragment StoreEntitySet="makineler">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Katalog" ColumnName="Katalog" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="Ozellikler" ColumnName="Ozellikler" />
+                <ScalarProperty Name="Detay" ColumnName="Detay" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mansetler">
+            <EntityTypeMapping TypeName="FermaksanModel.mansetler">
+              <MappingFragment StoreEntitySet="mansetler">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Yeni" ColumnName="Yeni" />
+                <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="s2m">
+            <EntityTypeMapping TypeName="FermaksanModel.s2m">
+              <MappingFragment StoreEntitySet="s2m">
+                <ScalarProperty Name="SektorId" ColumnName="SektorId" />
+                <ScalarProperty Name="MakineId" ColumnName="MakineId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sabitler">
+            <EntityTypeMapping TypeName="FermaksanModel.sabitler">
+              <MappingFragment StoreEntitySet="sabitler">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sektorler">
+            <EntityTypeMapping TypeName="FermaksanModel.sektorler">
+              <MappingFragment StoreEntitySet="sektorler">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Goster" ColumnName="Goster" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servis">
+            <EntityTypeMapping TypeName="FermaksanModel.servis">
+              <MappingFragment StoreEntitySet="servis">
+                <ScalarProperty Name="DilKod" ColumnName="DilKod" />
+                <ScalarProperty Name="Cevaplandi" ColumnName="Cevaplandi" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

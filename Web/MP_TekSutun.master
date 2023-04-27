@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MP.master" AutoEventWireup="true" CodeFile="MP_TekSutun.master.cs" Inherits="MP_TekSutun" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="CPH_CSS" runat="Server">
+    <asp:ContentPlaceHolder ID="CPH_TekCSS" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MP_Content" runat="Server">
+    <div class="container" id="h2" runat="server" visible="false">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    <asp:Literal ID="lblH2" runat="server" /></h2>
+            </div>
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="CPH_TekSutun" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+

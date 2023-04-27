@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MP.master" AutoEventWireup="true" CodeFile="MP_SagSutun.master.cs" Inherits="MP_SagSutun" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="CPH_CSS" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MP_Content" runat="Server">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 id="h2" runat="server" visible="false">
+                            <asp:Literal ID="lblH2" runat="server" /></h2>
+
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="CPH_Sol" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="col-md-3">
+                <asp:ContentPlaceHolder ID="CPH_Sag" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</asp:Content>
+

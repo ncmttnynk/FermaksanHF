@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a7a9c6969a1b49df943fee9e709edae8" Name="Diagram1">
+        <EntityTypeShape EntityType="FermaksanModel.admin" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FermaksanModel.anamenu" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FermaksanModel.cms" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FermaksanModel.iletisim" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FermaksanModel.k2m" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FermaksanModel.kategoriler" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FermaksanModel.makinefotograflar" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FermaksanModel.makineler" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="FermaksanModel.mansetler" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="FermaksanModel.s2m" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FermaksanModel.sabitler" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FermaksanModel.sektorler" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FermaksanModel.servis" Width="1.5" PointX="8.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
